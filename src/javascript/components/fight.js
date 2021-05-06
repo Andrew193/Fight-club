@@ -16,12 +16,12 @@ export async function fight(firstFighter, secondFighter) {
       lockComdo("FSA")
       secondFighterHealth -= 2 * +firstFighter.attack.toFixed(0)
       complex("#right-fighter-indicator", secondFighterHealth, secondFighter)
-      isAlive(resolve, secondFighterHealth, "Second Fighter looser")
+      isAlive(resolve, secondFighterHealth, "Second Fighter looser",firstFighter.source)
     } else if (codeLine.join("") === secondFSA && issecondFSA) {
       lockComdo("CSA")
       firstFighterHealth -= 2 * +secondFighter.attack.toFixed(0)
       complex("#left-fighter-indicator", firstFighterHealth, firstFighter)
-      isAlive(resolve, firstFighterHealth, "First Fighter looser")
+      isAlive(resolve, firstFighterHealth, "First Fighter looser",secondFighter.source)
     }
     codeLine = []
   }
@@ -40,7 +40,7 @@ export async function fight(firstFighter, secondFighter) {
           firstFighterDem = getDamage(firstFighter, secondFighter);
           secondFighterHealth -= firstFighterDem.toFixed(0)
           complex("#right-fighter-indicator", secondFighterHealth, secondFighter)
-          isAlive(resolve, secondFighterHealth, "Second Fighter looser")
+          isAlive(resolve, secondFighterHealth, "Second Fighter looser",firstFighter.source)
         } else PlayerTwoBlock = !PlayerTwoBlock
       }
       if (event.code === controls.PlayerTwoAttack && !PlayerTwoBlock) {
@@ -48,7 +48,7 @@ export async function fight(firstFighter, secondFighter) {
           secondFighterDem = getDamage(secondFighter, firstFighter);
           firstFighterHealth -= +secondFighterDem.toFixed(0)
           complex("#left-fighter-indicator", firstFighterHealth, firstFighter)
-          isAlive(resolve, firstFighterHealth, "First Fighter looser")
+          isAlive(resolve, firstFighterHealth, "First Fighter looser",secondFighter.source)
         } else PlayerOneBlock = !PlayerOneBlock
       }
       //attack special
@@ -81,7 +81,7 @@ function updateTurn(resolve) {
   },1000)
 }
 
-const winInfo = (params) => ({ title: "The fight is over", bodyElement: params, onClose: () => window.location.reload() })
+const winInfo = (params) => ({ title: "The fight is over. Winner: ", bodyElement: params, onClose: () => window.location.reload() })
 
 function showFighterIndicator(path, health) {
   const element = document.body.querySelector(path);
@@ -95,8 +95,8 @@ function showProg(path, health, fighter) {
   pr<=40?element.style.backgroundColor="#b15000":null
   pr<=10?element.style.backgroundColor="#eb0505":null
 }
-function isAlive(resolve, health, message) {
-  health <= 0 ? resolve(winInfo(message)) : null
+function isAlive(resolve, health, message,source) {
+  health <= 0 ? resolve({...winInfo(message),source:source}) : null
 }
 export function getDamage(attacker, defender) {
   // return damage

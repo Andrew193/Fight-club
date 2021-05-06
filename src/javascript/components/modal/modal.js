@@ -1,8 +1,7 @@
 import { createElement } from '../../helpers/domHelper';
-
-export function showModal({ title, bodyElement, onClose = () => {} }) {
+export function showModal({ title, bodyElement, onClose = () => {},source }) {
   const root = getModalContainer();
-  const modal = createModal({ title, bodyElement, onClose }); 
+  const modal = createModal({ title, bodyElement, onClose,source }); 
   
   root.append(modal);
 }
@@ -11,12 +10,13 @@ function getModalContainer() {
   return document.getElementById('root');
 }
 
-function createModal({ title, bodyElement, onClose }) {
+function createModal({ title, bodyElement, onClose,source }) {
   const layer = createElement({ tagName: 'div', className: 'modal-layer' });
   const modalContainer = createElement({ tagName: 'div', className: 'modal-root' });
   const header = createHeader(title, onClose);
+  const imgEl=createElement({tagName:"img",attributes:{src:source}}) 
 
-  modalContainer.append(header, bodyElement);
+  modalContainer.append(header,imgEl,bodyElement);
   layer.append(modalContainer);
 
   return layer;
