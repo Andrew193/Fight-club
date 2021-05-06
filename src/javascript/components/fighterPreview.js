@@ -1,6 +1,6 @@
 import { createElement } from '../helpers/domHelper';
-
-export function createFighterPreview(fighter, position) {
+export function createFighterPreview(fighter, position,selectedFighters) {
+  console.log(selectedFighters);
   const positionClassName = position === 'right' ? 'fighter-preview___right' : 'fighter-preview___left';
   const fighterElement = createElement({
     tagName: 'div',
@@ -14,6 +14,15 @@ export function createFighterPreview(fighter, position) {
     <h3>Fighter attack: ${fighter.attack}</h3>
     <h3>Fighter defense: ${fighter.defense}</h3>
   `
+  fighterElement.addEventListener("click",()=>{
+    if(position==="right"){
+      selectedFighters.pop();
+      document.body.querySelector(".fighter-preview___right").remove();
+    } else {
+      selectedFighters.shift();
+      document.body.querySelector(".fighter-preview___left").remove();
+    }
+  })
   fighterElement.append(createFighterImage(fighter))
   }
   // todo: show fighter info (image, name, health, etc.)

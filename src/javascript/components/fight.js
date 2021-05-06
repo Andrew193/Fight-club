@@ -88,9 +88,12 @@ function showFighterIndicator(path, health) {
   element.innerText = health.toFixed(0) + "HP"
 }
 function showProg(path, health, fighter) {
-  const element = document.body.querySelector(path);
-  if (path === "#left-fighter-indicator") element.style.width = (health * 100) / fighter.health + '%'
-  else element.style.width = (health * 100) / fighter.health + '%'
+  const element = document.body.querySelector(path),
+  pr=(health * 100) / fighter.health;
+  element.style.width = pr+ '%'
+  pr<=70?element.style.backgroundColor="#6db100":null
+  pr<=40?element.style.backgroundColor="#b15000":null
+  pr<=10?element.style.backgroundColor="#eb0505":null
 }
 function isAlive(resolve, health, message) {
   health <= 0 ? resolve(winInfo(message)) : null

@@ -1,6 +1,6 @@
 import { createElement } from '../helpers/domHelper';
 import { createFightersSelector } from './fighterSelector';
-
+import Script from "../helpers/tooltipHelper"
 export function createFighters(fighters) {
   const selectFighter = createFightersSelector();
   const container = createElement({ tagName: 'div', className: 'fighters___root' });
@@ -15,7 +15,7 @@ export function createFighters(fighters) {
 }
 
 function createFighter(fighter, selectFighter) {
-  const fighterElement = createElement({ tagName: 'div', className: 'fighters___fighter' });
+  const fighterElement = createElement({ tagName: 'div', className: 'fighters___fighter'});
   const imageElement = createImage(fighter);
   const onClick = (event) =>  selectFighter(event, fighter._id);
   
@@ -36,7 +36,8 @@ function createImage(fighter) {
   const imgElement = createElement({
     tagName: 'img',
     className: 'fighter___fighter-image',
-    attributes
+    attributes,
+    data:'tooltip'
   });
 
   return imgElement;

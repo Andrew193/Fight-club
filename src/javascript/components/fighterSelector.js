@@ -34,8 +34,8 @@ export async function getFighterInfo(fighterId) {
 function renderSelectedFighters(selectedFighters) {
   const fightersPreview = document.querySelector('.preview-container___root');
   const [playerOne, playerTwo] = selectedFighters;
-  const firstPreview = createFighterPreview(playerOne, 'left');
-  const secondPreview = createFighterPreview(playerTwo, 'right');
+  const firstPreview = createFighterPreview(playerOne, 'left',selectedFighters);
+  const secondPreview = createFighterPreview(playerTwo, 'right',selectedFighters);
   const versusBlock = createVersusBlock(selectedFighters);
 
   fightersPreview.innerHTML = '';
