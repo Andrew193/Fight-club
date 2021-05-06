@@ -3,7 +3,9 @@
   flex-direction: column;
   flex-basis: 250px;
 }
-
+.fighter-preview___root h2,h3{
+  margin: 2px;
+}
 .fighter-preview___right {
   align-items: flex-end;
 }

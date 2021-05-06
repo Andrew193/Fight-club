@@ -7,17 +7,25 @@ export function createFighterPreview(fighter, position) {
     className: `fighter-preview___root ${positionClassName}`,
   });
 
+  if (fighter) {
+    fighterElement.innerHTML = `
+    <h2>Fighter name: ${fighter.name}</h2>
+    <h3>Fighter health: ${fighter.health}</h3>
+    <h3>Fighter attack: ${fighter.attack}</h3>
+    <h3>Fighter defense: ${fighter.defense}</h3>
+  `
+  fighterElement.append(createFighterImage(fighter))
+  }
   // todo: show fighter info (image, name, health, etc.)
-
   return fighterElement;
 }
 
 export function createFighterImage(fighter) {
   const { source, name } = fighter;
-  const attributes = { 
-    src: source, 
+  const attributes = {
+    src: source,
     title: name,
-    alt: name 
+    alt: name
   };
   const imgElement = createElement({
     tagName: 'img',

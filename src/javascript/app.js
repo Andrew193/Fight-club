@@ -1,6 +1,5 @@
 import { createFighters } from './components/fightersView';
 import { fighterService } from './services/fightersService';
-
 class App {
   constructor() {
     this.startApp();

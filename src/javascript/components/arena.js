@@ -1,5 +1,7 @@
 import { createElement } from '../helpers/domHelper';
 import { createFighterImage } from './fighterPreview';
+import {showWinnerModal} from "./modal/winner"
+import {fight} from "./fight"
 
 export function renderArena(selectedFighters) {
   const root = document.getElementById('root');
@@ -7,7 +9,8 @@ export function renderArena(selectedFighters) {
 
   root.innerHTML = '';
   root.append(arena);
-
+  fight(selectedFighters[0],selectedFighters[1])
+  .then((winner)=>showWinnerModal(winner))
   // todo:
   // - start the fight
   // - when fight is finished show winner
