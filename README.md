@@ -4,7 +4,6 @@
 
 Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
 
-`npm run start`
 ```bash
 npm install
 ```
