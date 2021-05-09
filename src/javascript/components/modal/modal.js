@@ -9,12 +9,12 @@ export function showModal({ title, bodyElement, onClose = () => {},source }) {
 function getModalContainer() {
   return document.getElementById('root');
 }
-
+ 
 function createModal({ title, bodyElement, onClose,source }) {
   const layer = createElement({ tagName: 'div', className: 'modal-layer' });
   const modalContainer = createElement({ tagName: 'div', className: 'modal-root' });
   const header = createHeader(title, onClose);
-  const imgEl=createElement({tagName:"img",attributes:{src:source}}) 
+  const imgEl=createElement({tagName:"img",attributes:{src:source||"../../../.././resources/not.png"}}) 
 
   modalContainer.append(header,imgEl,bodyElement);
   layer.append(modalContainer);

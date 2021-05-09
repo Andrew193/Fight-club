@@ -1347,8 +1347,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modal */ "./src/javascript/components/modal/modal.js");
 
 function showWinnerModal(fighter) {
-  Object(_modal__WEBPACK_IMPORTED_MODULE_0__["showModal"])(fighter);
-  console.log(fighter); // call showModal function 
+  Object(_modal__WEBPACK_IMPORTED_MODULE_0__["showModal"])(fighter); // call showModal function 
 }
 
 /***/ }),

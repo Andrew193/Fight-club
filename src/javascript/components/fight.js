@@ -1,7 +1,7 @@
 import { controls } from '../../constants/controls';
 
 const firstFSA = 'KeyQKeyWKeyE', secondFSA = 'KeyUKeyIKeyO';
-let codeLine = [], isfirstFSA = true, issecondFSA = true, PlayerOneBlock = false, PlayerTwoBlock = false,times=99;
+let codeLine = [], isfirstFSA = true, issecondFSA = true, PlayerOneBlock = false, PlayerTwoBlock = false,times=9;
 export async function fight(firstFighter, secondFighter) {
   let firstFighterHealth = firstFighter.health, secondFighterHealth = secondFighter.health,
     firstFighterDem = 0, secondFighterDem = 0;
