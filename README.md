@@ -1,27 +1,11 @@
-# Street Fighter
+# stage-2-es6-for-everyone
 
-Street Fighter is a simple street fight simulator with a choice of fighters.
+## Instalation
 
-## Installation
+`npm install`
 
-Use the package manager [npm](https://www.npmjs.com/) to install dependencies.
+`npm run build`
 
-```bash
-npm install
-```
+`npm run start`
 
-## Usage
-
-```bash
-npm run build
-npm run start
-```
-Open [http://localhost:8080/](http://localhost:8080/) to start app
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
+open http://localhost:8080/

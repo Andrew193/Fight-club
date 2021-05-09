@@ -27,7 +27,8 @@ export async function getFighterInfo(fighterId) {
       fighterDetailsMap.set(fighterId,FighterInfo)
       return FighterInfo
     })
-  } else return fighterDetailsMap.get(fighterId)
+  }
+  return fighterDetailsMap.get(fighterId)
   // get fighter info from fighterDetailsMap or from service and write it to fighterDetailsMap
 }
 

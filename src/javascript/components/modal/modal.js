@@ -9,7 +9,7 @@ export function showModal({ title, bodyElement, onClose = () => {},source }) {
 function getModalContainer() {
   return document.getElementById('root');
 }
- 
+
 function createModal({ title, bodyElement, onClose,source }) {
   const layer = createElement({ tagName: 'div', className: 'modal-layer' });
   const modalContainer = createElement({ tagName: 'div', className: 'modal-root' });

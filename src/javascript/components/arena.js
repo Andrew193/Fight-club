@@ -10,7 +10,7 @@ export function renderArena(selectedFighters) {
   root.innerHTML = '';
   root.append(arena);
   fight(selectedFighters[0],selectedFighters[1])
-  .then((winner)=>showWinnerModal(winner))
+  .then((winnerInfo)=>showWinnerModal(winnerInfo))
   // todo:
   // - start the fight
   // - when fight is finished show winner
